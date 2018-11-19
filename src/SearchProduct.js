@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class SearchProduct extends Component {
   constructor(props){
@@ -14,7 +15,7 @@ class SearchProduct extends Component {
   render() {
     return (
         <div>
-            <input placeholder="Search Name(Read-only)" ref={nameInput => this.nameInput = nameInput} onChange={this.onSearch}/>
+            <input placeholder="Search By Name" ref={nameInput => this.nameInput = nameInput} onChange={this.onSearch}/>
             <hr/>
         </div>       
     );  

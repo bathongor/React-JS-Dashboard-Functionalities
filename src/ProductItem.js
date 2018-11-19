@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './App.css';
 class ProductItem extends Component {
   constructor(props){
     super(props);
@@ -29,32 +29,31 @@ class ProductItem extends Component {
   render() {
     const { name, price, item } = this.props;
     return (
-        <div>
+        <tbody>
           {
             this.state.isEdit 
             ? (
-              <form onSubmit={this.onEditSubmit}>
-                <input placeholder="Enter Name" ref={nameInput => this.nameInput = nameInput} defaultValue={name}/>
-                <input placeholder="Enter Item" ref={itemInput => this.itemInput = itemInput} defaultValue={item}/>
-                <input placeholder="Enter Price"  ref={priceInput => this.priceInput = priceInput} defaultValue={price}/>
-                <button>Save</button>
-              </form>  
+              <tr>
+                <td colSpan={5}>
+                  <form onSubmit={this.onEditSubmit}>
+                    <input placeholder="Enter Name" ref={nameInput => this.nameInput = nameInput} defaultValue={name}/>
+                    <input placeholder="Enter Item" ref={itemInput => this.itemInput = itemInput} defaultValue={item}/>
+                    <input placeholder="Enter Price"  ref={priceInput => this.priceInput = priceInput} defaultValue={price}/>
+                    <button>Save</button>
+                  </form> 
+                </td>
+              </tr>
             ):(
-              <div> 
-                <span>{name}</span> 
-                {' | '} 
-                <span>{item}</span> 
-                {' | '} 
-                <span>{price}</span>
-                {' | '} 
-                <button onClick={this.onEdit}>Edit</button>
-                {' | '} 
-                <button onClick={this.onDelete}>Delete</button>
-              </div>
+              <tr>
+                <td>{name}</td> 
+                <td>{item}</td>
+                <td>{price}</td>
+                <td><button onClick={this.onEdit}>Edit</button></td>
+                <td><button onClick={this.onDelete}>Delete</button></td>
+              </tr>
             )
           }
-            
-        </div>       
+        </tbody>      
     );  
   }
 }
